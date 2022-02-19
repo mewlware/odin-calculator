@@ -30,12 +30,17 @@ for (let operator of operatorsBtns.children) {
 
 function addNumber(num) {
     hideResultandShowNumber()
+    if (operand1 === 'ERROR' || operand2 === 'ERROR'){
+        return;
+    }
 
     let currentOperand = "";
     if (!operation) {
         currentOperand = operand1;
+        console.log(`operating on operand1 which is ${operand1}`)
     } else {
         currentOperand = operand2;
+        console.log(`operating on operand2 which is ${operand2}`)
     }
 
     if ((num == "0" || num == "00") && currentOperand == "0") {
@@ -65,6 +70,10 @@ function addNumber(num) {
 
 
 function addOperator(operator) {
+    if (operand1 === 'ERROR' || operand2 === 'ERROR'){
+        return;
+    }
+
     if (operation) {
         operand1 = calculate();
     }
@@ -73,6 +82,10 @@ function addOperator(operator) {
 }
 
 function backspace() {
+    if (operand1 === 'ERROR' || operand2 === 'ERROR'){
+        return;
+    }
+
     textLength = operandText.textContent.length;
     if (textLength == 1) {
         operandText.textContent = "0";
@@ -108,8 +121,9 @@ function showResult() {
     }
     calculationText.textContent += " " + operand2 + " =";
     result = calculate();
-    resultText.textContent = result;
+    resultText.textContent = Math.round(result * 100000000000)/100000000000;
     operandText.textContent = "0";
+    operation = "";
 
     showResultandhideNumber();
 }
@@ -131,6 +145,14 @@ function chooseOperator(operator, num1, num2) {
             return multiplication(num1, num2);
         case "/":
             return division(num1, num2);
+        case "^":
+            return exponentiation(num1, num2);
+        case "%":
+            return remainder(num1, num2);
+        case "2√":
+            return squareroot(num1);
+        case "√":
+            return roofOf(num1, num2);
         default:
             return 0;
     }
@@ -154,4 +176,26 @@ function division(num1, num2) {
     } else {
         return NaN;
     };
+}
+
+function exponentiation(num1, num2) {
+    return num1 ** num2;
+}
+
+function remainder(num1, num2) {
+    return num1 % num2;
+}
+
+function squareroot(num1) {
+    if (num1 <= 0) {
+        return 'ERROR';
+    }
+    return Math.sqrt(num1);
+}
+
+function rootOf(num1, num2) {
+    if (num1 <= 0 || num2 <= 0) {
+        return 'ERROR';
+    }
+    return Math.pow(num1, 1/num2)
 }
