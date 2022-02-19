@@ -1,0 +1,145 @@
+/* CSS RESET */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+    height: 100%;
+  }
+
+/* IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,800&display=swap');
+
+h1, button, p {
+    font-family: 'Source Code Pro', monospace;
+}
+
+button {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+/* BASIC BODY */
+body {
+    background-color: hsl(223, 26%, 21%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 36px;
+}
+
+/* TEXT */
+h1, p {
+    color: hsl(355, 78%, 59%);
+}
+
+/* CALCULATOR */
+main.calculator {
+    width: 576px;
+    height: content;
+    
+    background-color: hsl(132, 37%, 68%);
+    border-radius: 20px;
+    border: 1px solid black;
+    box-sizing: content-box;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* SECTIONS */
+
+section.monitor {
+    height: 112px;
+    background-color: hsl(153, 23%, 46%);
+    border-radius: 10px;
+    border: 2px solid hsl(153, 29%, 34%);
+    margin: 30px 30px 0;
+}
+
+section.buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px;
+}
+
+/* BUTTON MENUS */
+
+section > menu {
+    display: flex;
+    margin-right: 24px;
+}
+
+menu.reset {
+    flex-direction: column;
+    flex-basis: 72px;
+    align-items:center;
+}
+
+menu.numbers {
+    flex-direction: row-reverse;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-basis: 240px;
+    justify-content: center;
+}
+
+menu.operators {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    flex-basis: 156px;
+    justify-content: center;
+    margin-right: 0;
+
+}
+
+/* BUTTONS */
+
+button {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 10px;
+    border: solid 2px;
+}
+
+menu.numbers > button:nth-of-type(3n+1),
+menu.operators > button:nth-of-type(2n+2) {
+    margin: 6px 0px 6px 6px;
+}
+
+menu.numbers > button:nth-of-type(3n+2) {
+    margin: 6px 6px;
+}
+
+menu.numbers > button:nth-of-type(3n+3),
+menu.operators > button:nth-of-type(2n+1) {
+    margin: 6px 6px 6px 0px;
+}
+
+menu.numbers > button:nth-of-type(n+9),
+menu.operators > button:nth-of-type(n+6) {
+    margin-bottom: 0px;
+}
+
+menu.reset > button,
+menu.operators > button {
+    margin: 6px 0px;
+    background-color: hsl(355, 71%, 51%);
+    color:hsl(0, 0%, 88%);
+    border-color: hsl(355, 87%, 31%);
+}
+
+menu.numbers > button {
+    background-color: hsl(355, 65%, 43%);
+    color: hsl(0, 0%, 88%);
+    border-color: rgb(105, 6, 14);
+}
