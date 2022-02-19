@@ -73,11 +73,20 @@ function addOperator(operator) {
     if (operand1 === 'ERROR' || operand2 === 'ERROR'){
         return;
     }
-
     if (operation) {
         operand1 = calculate();
     }
+
     operation = operator;
+
+    if (operation === "√") {
+        calculationText.textContent = "x√" + operand1;
+        return;
+    } else if (operation === "2√") {
+        calculationText.textContent = "√" + operand1;
+        return;
+    } 
+
     calculationText.textContent = operand1 + " " + operation;
 }
 
@@ -118,8 +127,15 @@ function hideResultandShowNumber() {
 function showResult() {
     if (operation && calculationText.textContent.includes("=")) {
         return;
+    } else if (operation === "2√") {
+        calculationText.textContent += " =";
+    } else if (operation === "√") {
+        calcTextArray = calculationText.textContent.split("√");
+        calcTextArray[0] = operand2;
+        calculationText.textContent = calcTextArray.join("√")
+    } else {
+        calculationText.textContent += " " + operand2 + " =";
     }
-    calculationText.textContent += " " + operand2 + " =";
     result = calculate();
     resultText.textContent = Math.round(result * 100000000000)/100000000000;
     operandText.textContent = "0";
@@ -152,7 +168,7 @@ function chooseOperator(operator, num1, num2) {
         case "2√":
             return squareroot(num1);
         case "√":
-            return roofOf(num1, num2);
+            return rootOf(num1, num2);
         default:
             return 0;
     }
