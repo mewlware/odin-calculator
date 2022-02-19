@@ -1,4 +1,4 @@
-/* CSS RESET */
+/* CSS misc */
 *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -84,7 +84,8 @@ section.monitor {
     height: 1em;
 }
 
-.result {
+.result,
+.operand {
     margin-top: 6px;
     line-height: 100%;
     font-size: 3em;
@@ -98,7 +99,7 @@ section > menu {
     margin-right: 24px;
 }
 
-menu.reset {
+menu.misc {
     flex-direction: column;
     flex-basis: 72px;
     align-items:center;
@@ -150,7 +151,7 @@ menu.operators > button:nth-of-type(n+6) {
     margin-bottom: 0px;
 }
 
-menu.reset > button,
+menu.misc > button,
 menu.operators > button {
     margin: 6px 0px;
     background-color: hsl(355, 71%, 51%);
@@ -162,4 +163,9 @@ menu.numbers > button {
     background-color: hsl(355, 65%, 43%);
     color: hsl(0, 0%, 88%);
     border-color: rgb(105, 6, 14);
+}
+
+/* TOGGLE JAVASCRIPT HIDDEN */
+.hidden {
+  display: none;
 }
