@@ -15,13 +15,14 @@
     <main class="calculator">
         <section class="monitor">
             <div class="calculation"></div>
-            <div class="result">0</div>
+            <div class="operand">0</div>
+            <div class="result hidden">0</div>
         </section>
         <section class="buttons">
             <menu class="misc">
                 <button id="clear">AC</button>
                 <button id="backspace">&#9664</button>
-                <button class="showResult">=</button>
+                <button id="showResult">=</button>
             </menu>
             <menu class="numbers">
                 <button id="num9">9</button>
@@ -40,8 +41,8 @@
             <menu class="operators">
                 <button id="addition">+</button>
                 <button id="substraction">-</button>
-                <button id="division">/</button>
                 <button id="multiplication">x</button>
+                <button id="division">/</button>
 
                 <button id="exponent">^</button>
                 <button id="modulo">%</button>
