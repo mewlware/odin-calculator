@@ -80,6 +80,10 @@ section.monitor {
     color:hsl(0, 0%, 88%);
 }
 
+.calculation {
+    height: 1em;
+}
+
 .result {
     margin-top: 6px;
     line-height: 100%;
