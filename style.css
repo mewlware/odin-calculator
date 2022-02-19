@@ -15,7 +15,7 @@ html, body {
 /* IMPORT */
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,800&display=swap');
 
-h1, button, p {
+* {
     font-family: 'Source Code Pro', monospace;
 }
 
@@ -46,7 +46,7 @@ main.calculator {
     width: 576px;
     height: content;
     
-    background-color: hsl(132, 37%, 68%);
+    background-color: hsl(132, 35%, 63%);
     border-radius: 20px;
     border: 1px solid black;
     box-sizing: content-box;
@@ -59,10 +59,12 @@ main.calculator {
 
 section.monitor {
     height: 112px;
-    background-color: hsl(153, 23%, 46%);
+    background-color: hsl(153, 29%, 36%);
     border-radius: 10px;
-    border: 2px solid hsl(153, 29%, 34%);
+    border: 2px solid rgb(48, 90, 70);
     margin: 30px 30px 0;
+
+    padding: 12px;
 }
 
 section.buttons {
@@ -70,6 +72,20 @@ section.buttons {
     justify-content: flex-start;
     margin: 30px;
 }
+
+/* CALCULATION TEXT STYLING */
+
+section.monitor {
+    text-align: right;
+    color:hsl(0, 0%, 88%);
+}
+
+.result {
+    margin-top: 6px;
+    line-height: 100%;
+    font-size: 3em;
+}
+
 
 /* BUTTON MENUS */
 
